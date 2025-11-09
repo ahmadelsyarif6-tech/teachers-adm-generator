@@ -1,0 +1,19 @@
+# Konfigurasi Build Netlify
+[build]
+  # Perintah untuk menjalankan build (sesuai dengan "build": "vite build" di package.json)
+  command = "npm run build"
+  # Direktori yang akan di-deploy ke Netlify (hasil output Vite)
+  publish = "dist"
+
+# Konfigurasi Fallback/Redirect
+# Ini memastikan bahwa aplikasi React (SPA - Single Page Application) dapat dimuat dengan benar
+# terlepas dari jalur URL-nya.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Konfigurasi Environment Variables (Opsional)
+# Jika Anda memiliki variabel lingkungan yang harus dipublikasikan ke klien (seperti VITE_***),
+# Anda bisa menanganinya melalui antarmuka UI Netlify atau menggunakan fitur build Netlify.
+# Karena Anda memiliki file .env.local, Netlify akan menangani variabel saat build.
